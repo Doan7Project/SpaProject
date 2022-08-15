@@ -1,12 +1,31 @@
 import * as React from "react";
 import Link from "next/link";
-import { navLinks } from "../data";
-import { dropMenus } from "../data";
 import StyleHeader from "../components/header.module.css";
 // import '../node_modules/bootstrap/dist/css/bootstrap.css'
 export interface HeaderConponentProps {}
 
 export default function HeaderConponent(props: HeaderConponentProps) {
+  const navLinks = [
+    { 
+      id:1,
+      name: "Home", path: "/" },
+    {
+      id:2,
+      name: "Services",
+      path: "/services",
+    },
+    {
+      id:3,
+      name: "About Us",
+      path: "/about",
+    },
+    {
+      id:3,
+      name: "Contact",
+      path: "/contact",
+    },
+    
+  ];
   const [isOpen, setIsOpen] = React.useState(false);
   false;
 
