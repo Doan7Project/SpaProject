@@ -7,7 +7,6 @@ export interface  BlogPageProps {
 export default function BlogPage (props:  BlogPageProps) {
   return (
     <div>
-        <HeaderConponent/>
       <span>BlogPage</span>
     </div>
   );
