@@ -1,5 +1,5 @@
 import * as React from "react";
-import HeaderConponent from "./src/conponents/header";
+import HeaderConponent from "./src/components/header";
 
 export interface ServicePageProps {}
 

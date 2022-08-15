@@ -1,5 +1,4 @@
 import * as React from 'react';
-import HeaderConponent from './src/conponents/header';
 
 export interface  BlogPageProps {
 }

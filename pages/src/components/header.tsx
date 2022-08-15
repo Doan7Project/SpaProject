@@ -2,7 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import { navLinks } from "../data";
 import { dropMenus } from "../data";
-import StyleHeader from "../conponents/header.module.css";
+import StyleHeader from "../components/header.module.css";
 // import '../node_modules/bootstrap/dist/css/bootstrap.css'
 export interface HeaderConponentProps {}
 
