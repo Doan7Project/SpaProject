@@ -15,15 +15,16 @@ export interface NavBarProps {}
 
 export default function NavBar(props: NavBarProps) {
   const [active, setActive] = React.useState(false);
-  const ref = useOnclickOutside(()=>{
+  const ref = useOnclickOutside(() => {
     setActive(false);
-  })
+  });
   const showDropList = () => {
- 
-
     setActive(!active);
   };
-
+  const [isOpen, setisOpen] = React.useState(false);
+  const showMenubar = () => {
+    setisOpen(!isOpen);
+  };
   return (
     <div className={Styles.MainHeader}>
       <header className={Styles.header}>
@@ -32,12 +33,22 @@ export default function NavBar(props: NavBarProps) {
           <Image src={Logo} width={40} height={40}></Image>
         </div>
         {/* navbar */}
-        <div className={Styles.line}>
-          <div className={Styles.line1}></div>
-          <div className={Styles.line2}></div>
-          <div className={Styles.line3}></div>
+        <div className={Styles.line} onClick={showMenubar}>
+          <div className={ isOpen === false
+                ? Styles.line1
+                : Styles.line1 + " " + Styles.effectline1}></div>
+          <div
+            className={
+              isOpen === false
+                ? Styles.line2
+                : Styles.line2 + " " + Styles.effectline2
+            }
+          ></div>
+          <div className={ isOpen === false
+                ? Styles.line3
+                : Styles.line3 + " " + Styles.effectline3}></div>
         </div>
-        <nav className={Styles.navbar}>
+        <nav className={isOpen ===false ? Styles.navbar:Styles.navbar+' '+Styles.activeMenu}>
           <ul>
             <li>
               <Link href="/">
@@ -52,7 +63,8 @@ export default function NavBar(props: NavBarProps) {
                   active === false
                     ? StylesDrop.dropDowList
                     : StylesDrop.dropDowList + " " + StylesDrop.showServiceList
-                } ref={ref}
+                }
+                ref={ref}
               >
                 {dropdowlist.map((list, index) => {
                   return (
@@ -82,6 +94,9 @@ export default function NavBar(props: NavBarProps) {
               <a href="">Contact Us</a>
             </li>
           </ul>
+          <div className={Styles.logoResponsive}>
+            <span>LOGO DROPDOWLIS</span>
+          </div>
         </nav>
 
         <div className={Styles.advertise}>
