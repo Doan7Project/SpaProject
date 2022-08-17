@@ -55,7 +55,7 @@ export default function HeaderConponent(props: HeaderConponentProps) {
               <div key={index}>
                 <Link href={link.path}>
                   <div onClick={showMenubar}>
-                  <img src="homeIcon" alt="" />
+            
 
                     <a href="">
                       {link.title}

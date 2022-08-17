@@ -63,7 +63,7 @@ export default function NavBar(props: NavBarProps) {
         </nav>
 
         <div className={Styles.advertise}>
-          <div>
+          {/* <div>
             <Image src={Facebook} width={20} height={20} />
           </div>
           <div>
@@ -71,7 +71,7 @@ export default function NavBar(props: NavBarProps) {
           </div>
           <div>
             <Image src={Instagram} width={20} height={20} />
-          </div>
+          </div> */}
         </div>
       </header>
     </div>
