@@ -1,7 +1,7 @@
 import * as React from "react";
 import Styles from "../components/navbar.module.css";
 import StylesDrop from "./dropdown.module.css";
-import { dropdowlist } from "./dropdowlist";
+import { dropdowlist } from "../../src/dropdowlist";
 import Image from "next/image";
 import Logo from "../images/slack.png";
 import Facebook from "../images/facebook.png";
