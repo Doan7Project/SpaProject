@@ -1,5 +1,6 @@
 import * as React from "react";
 import Styles from "../components/navbar.module.css";
+import DropDown from "./dropdown";
 import Image from "next/image";
 import Logo from "../images/slack.png";
 import Facebook from "../images/facebook.png";
@@ -11,24 +12,26 @@ export interface NavBarProps {}
 export default function NavBar(props: NavBarProps) {
   return (
     <div className={Styles.MainHeader}>
-      <div className={Styles.line}>
-        <div className={Styles.line1}></div>
-        <div className={Styles.line2}></div>
-        <div className={Styles.line3}></div>
-      </div>
       <header className={Styles.header}>
+   
         {/* Logo */}
         <div>
           <Image src={Logo} width={40} height={40}></Image>
         </div>
         {/* navbar */}
+        <div className={Styles.line}>
+          <div className={Styles.line1}></div>
+          <div className={Styles.line2}></div>
+          <div className={Styles.line3}></div>
+        </div>
         <nav className={Styles.navbar}>
           <ul>
             <li>
               <a href="">Home</a>
             </li>
-            <li>
+            <li className={Styles.dropList}>
               <a href="">Services</a>
+              <DropDown />
             </li>
             <li>
               <a href="">Teacher</a>
