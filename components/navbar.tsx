@@ -1,21 +1,29 @@
 import * as React from "react";
 import Styles from "../components/navbar.module.css";
 import StylesDrop from "./dropdown.module.css";
+import useOnclickOutside from "react-cool-onclickoutside";
 import { dropdowlist } from "../src/images/dropdowlist";
+import Link from "next/link";
 import Image from "next/image";
 import Logo from "../src/images/slack.png";
 import Facebook from "../images/facebook.png";
 import Tiktok from "../images/tik-tok.png";
 import Instagram from "../images/instagram.png";
 import Phone from "../images/phone-call.png";
+import { link } from "fs";
 export interface NavBarProps {}
 
 export default function NavBar(props: NavBarProps) {
   const [active, setActive] = React.useState(false);
-  const showDropList =() =>{
+  const ref = useOnclickOutside(()=>{
+    setActive(false);
+  })
+  const showDropList = () => {
+ 
+
     setActive(!active);
-    console.log("Active")
-  }
+  };
+
   return (
     <div className={Styles.MainHeader}>
       <header className={Styles.header}>
@@ -32,18 +40,30 @@ export default function NavBar(props: NavBarProps) {
         <nav className={Styles.navbar}>
           <ul>
             <li>
-              <a href="">Home</a>
+              <Link href="/">
+                <a>Home</a>
+              </Link>
             </li>
             <li className={Styles.dropList} onClick={showDropList}>
               <a href="#">Services</a>
               {/* <DropDown/> */}
-              <div className={active === false ? StylesDrop.dropDowList:StylesDrop.dropDowList+' '+StylesDrop.showServiceList}>
+              <div
+                className={
+                  active === false
+                    ? StylesDrop.dropDowList
+                    : StylesDrop.dropDowList + " " + StylesDrop.showServiceList
+                } ref={ref}
+              >
                 {dropdowlist.map((list, index) => {
                   return (
                     <div className={StylesDrop.rowList} key={list.id}>
                       <div>
-                        <a href="">{list.title}</a>
-                        <p className={StylesDrop.content}>{list.content}</p>
+                        <Link href={list.path}>
+                          <div>
+                            <a>{list.title}</a>
+                            <p className={StylesDrop.content}>{list.content}</p>
+                          </div>
+                        </Link>
                       </div>
                     </div>
                   );
@@ -51,7 +71,9 @@ export default function NavBar(props: NavBarProps) {
               </div>
             </li>
             <li>
-              <a href="">Teacher</a>
+              <Link href="/about">
+                <a>Teacher</a>
+              </Link>
             </li>
             <li>
               <a href="">About Us</a>
