@@ -21,6 +21,7 @@ export default function NavBar(props: NavBarProps) {
   const showDropList = () => {
     setActive(!active);
   };
+  // open navbar
   const [isOpen, setisOpen] = React.useState(false);
   const showMenubar = () => {
     setisOpen(!isOpen);
@@ -55,7 +56,7 @@ export default function NavBar(props: NavBarProps) {
                 <a>Home</a>
               </Link>
             </li>
-            <li className={Styles.dropList} onClick={showDropList}>
+            <li  ref={ref} className={Styles.dropList} onClick={showDropList}>
               <a href="#">Services</a>
               {/* <DropDown/> */}
               <div
@@ -64,7 +65,7 @@ export default function NavBar(props: NavBarProps) {
                     ? StylesDrop.dropDowList
                     : StylesDrop.dropDowList + " " + StylesDrop.showServiceList
                 }
-                ref={ref}
+               
               >
                 {dropdowlist.map((list, index) => {
                   return (
