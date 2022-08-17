@@ -1,7 +1,7 @@
 import * as React from "react";
 import Styles from "./dropdown.module.css";
 import { dropdowlist } from "./dropdowlist";
-import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+// import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 export interface DropDownProps {}
 
 export default function DropDown(props: DropDownProps) {

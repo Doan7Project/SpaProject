@@ -1,6 +1,7 @@
 import * as React from "react";
 import Styles from "../components/navbar.module.css";
-import DropDown from "./dropdown";
+import StylesDrop from "./dropdown.module.css";
+import { dropdowlist } from "./dropdowlist";
 import Image from "next/image";
 import Logo from "../images/slack.png";
 import Facebook from "../images/facebook.png";
@@ -10,10 +11,14 @@ import Phone from "../images/phone-call.png";
 export interface NavBarProps {}
 
 export default function NavBar(props: NavBarProps) {
+  const [active, setActive] = React.useState(false);
+  const showDropList =() =>{
+    setActive(!active);
+    console.log("Active")
+  }
   return (
     <div className={Styles.MainHeader}>
       <header className={Styles.header}>
-   
         {/* Logo */}
         <div>
           <Image src={Logo} width={40} height={40}></Image>
@@ -29,9 +34,21 @@ export default function NavBar(props: NavBarProps) {
             <li>
               <a href="">Home</a>
             </li>
-            <li className={Styles.dropList}>
-              <a href="">Services</a>
-              <DropDown />
+            <li className={Styles.dropList} onClick={showDropList}>
+              <a href="#">Services</a>
+              {/* <DropDown/> */}
+              <div className={active === false ? StylesDrop.dropDowList:StylesDrop.dropDowList+' '+StylesDrop.showServiceList}>
+                {dropdowlist.map((list, index) => {
+                  return (
+                    <div className={StylesDrop.rowList} key={list.id}>
+                      <div>
+                        <a href="">{list.title}</a>
+                        <p className={StylesDrop.content}>{list.content}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </li>
             <li>
               <a href="">Teacher</a>
