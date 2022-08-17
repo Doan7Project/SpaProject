@@ -15,12 +15,12 @@ export interface NavBarProps {}
 
 export default function NavBar(props: NavBarProps) {
   const [active, setActive] = React.useState(false);
-  // const ref = useOnclickOutside(() => {
-  //   setActive(false);
-  // });
-  // const showDropList = () => {
-  //   setActive(!active);
-  // };
+  const ref = useOnclickOutside(() => {
+    setActive(false);
+  });
+  const showDropList = () => {
+    setActive(!active);
+  };
   // open navbar
   const [isOpen, setisOpen] = React.useState(false);
   const showMenubar = () => {
@@ -49,14 +49,14 @@ export default function NavBar(props: NavBarProps) {
                 ? Styles.line3
                 : Styles.line3 + " " + Styles.effectline3}></div>
         </div>
-        <nav className={isOpen ===false ? Styles.navbar:Styles.navbar+' '+Styles.activeMenu}>
-          <ul>
+        <nav>
+          <ul className={isOpen ===false ? Styles.navbar:Styles.navbar+' '+Styles.activeMenu}>
             <li>
               <Link href="/">
                 <a>Home</a>
               </Link>
             </li>
-            <li className={Styles.dropList} >
+            <li  ref={ref} className={Styles.dropList} onClick={showDropList}>
               <a href="#">Services</a>
               {/* <DropDown/> */}
               <div
@@ -94,10 +94,11 @@ export default function NavBar(props: NavBarProps) {
             <li>
               <a href="">Contact Us</a>
             </li>
-          </ul>
-          <div className={Styles.logoResponsive}>
+            <div className={Styles.logoResponsive}>
             <span>LOGO DROPDOWLIS</span>
           </div>
+          </ul>
+        
         </nav>
 
         <div className={Styles.advertise}>
