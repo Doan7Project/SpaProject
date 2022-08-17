@@ -15,12 +15,12 @@ export interface NavBarProps {}
 
 export default function NavBar(props: NavBarProps) {
   const [active, setActive] = React.useState(false);
-  const ref = useOnclickOutside(() => {
-    setActive(false);
-  });
-  const showDropList = () => {
-    setActive(!active);
-  };
+  // const ref = useOnclickOutside(() => {
+  //   setActive(false);
+  // });
+  // const showDropList = () => {
+  //   setActive(!active);
+  // };
   // open navbar
   const [isOpen, setisOpen] = React.useState(false);
   const showMenubar = () => {
@@ -56,7 +56,7 @@ export default function NavBar(props: NavBarProps) {
                 <a>Home</a>
               </Link>
             </li>
-            <li  ref={ref} className={Styles.dropList} onClick={showDropList}>
+            <li className={Styles.dropList} >
               <a href="#">Services</a>
               {/* <DropDown/> */}
               <div
